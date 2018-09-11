@@ -17,6 +17,13 @@ defmodule RideShare.Identity.UserTest do
     assert changeset.errors[:email]
   end
 
+  test "changeset with invalid email is invalid" do
+    changeset = User.changeset(%User{}, %{email: "foobar"})
+
+    refute changeset.valid?
+    assert changeset.errors[:email]
+  end
+
   test "changeset without first_name is invalid" do
     changeset = User.changeset(%User{}, %{first_name: ""})
 
