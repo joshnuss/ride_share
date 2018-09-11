@@ -10,5 +10,17 @@ defmodule RideShare.Repo.Migrations.AddInitialSchema do
 
       timestamps()
     end
+
+    create index(:users, :email)
+
+    create table(:credentials) do
+      add :user_id, references(:users)
+      add :type, :string, null: false
+      add :token, :string, null: false
+
+      timestamps()
+    end
+
+    create index(:credentials, [:user_id, :type])
   end
 end
