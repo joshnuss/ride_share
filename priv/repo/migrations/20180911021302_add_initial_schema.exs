@@ -6,6 +6,7 @@ defmodule RideShare.Repo.Migrations.AddInitialSchema do
       add :email, :string, null: false
       add :first_name, :string, null: false
       add :last_name, :string, null: false
+      add :avatar, :string
       add :vehicle, :json
 
       timestamps()
