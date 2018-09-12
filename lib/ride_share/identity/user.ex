@@ -5,10 +5,10 @@ defmodule RideShare.Identity.User do
   @email_regex ~r/^(?<user>[^\s]+)@(?<domain>[^\s]+\.[^\s]+)$/
 
   schema "users" do
-    field :email, :string
-    field :first_name, :string
-    field :last_name, :string
-    field :avatar, :string
+    field(:email, :string)
+    field(:first_name, :string)
+    field(:last_name, :string)
+    field(:avatar, :string)
 
     timestamps()
   end

@@ -14,8 +14,7 @@ config :ride_share, RideShare.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "l6QOg0KniQ/o3NPGWqTFn5VIz9tBj3Sdefaw6RRYD89QX6F2s9An8orTAz/m2zXx",
   render_errors: [view: RideShare.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: RideShare.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: RideShare.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -24,4 +23,4 @@ config :logger, :console,
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{Mix.env}.exs"
+import_config "#{Mix.env()}.exs"

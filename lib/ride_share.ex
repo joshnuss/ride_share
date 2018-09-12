@@ -9,7 +9,7 @@ defmodule RideShare do
       # Start the Ecto repository
       RideShare.Repo,
       # Start the endpoint when the application starts
-      RideShare.Endpoint,
+      RideShare.Endpoint
       # Start your own worker by calling: RideShare.Worker.start_link(arg1, arg2, arg3)
       # {RideShare.Worker, [arg1, arg2, arg3]},
     ]
