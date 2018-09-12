@@ -3,6 +3,7 @@ defmodule RideShare.Identity.User do
   import Ecto.Changeset
 
   alias RideShare.Identity.Credential
+  alias __MODULE__, as: User
 
   @email_regex ~r/^(?<user>[^\s]+)@(?<domain>[^\s]+\.[^\s]+)$/
 
@@ -15,6 +16,10 @@ defmodule RideShare.Identity.User do
     field(:avatar, :string)
 
     timestamps()
+  end
+
+  def new(attrs) do
+    changeset(%User{}, attrs)
   end
 
   @doc false

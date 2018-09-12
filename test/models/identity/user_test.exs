@@ -47,8 +47,8 @@ defmodule RideShare.Identity.UserTest do
   end
 
   defp insert_user(attributes) do
-    %User{}
-    |> User.changeset(attributes)
+    attributes
+    |> User.new()
     |> Repo.insert()
   end
 end
