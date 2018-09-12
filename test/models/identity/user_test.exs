@@ -3,7 +3,7 @@ defmodule RideShare.Identity.UserTest do
 
   alias RideShare.Identity.User
 
-  @valid_attrs %{email: "user@example.com", first_name: "John", last_name: "Smith"}
+  @valid_attrs %{email: "user@example.com", given_name: "John", family_name: "Smith"}
 
   test "changeset with valid attributes" do
     changeset = User.changeset(%User{}, @valid_attrs)
@@ -24,18 +24,18 @@ defmodule RideShare.Identity.UserTest do
     assert changeset.errors[:email]
   end
 
-  test "changeset without first_name is invalid" do
-    changeset = User.changeset(%User{}, %{first_name: ""})
+  test "changeset without given_name is invalid" do
+    changeset = User.changeset(%User{}, %{given_name: ""})
 
     refute changeset.valid?
-    assert changeset.errors[:first_name]
+    assert changeset.errors[:given_name]
   end
 
-  test "changeset without last_name is invalid" do
-    changeset = User.changeset(%User{}, %{last_name: ""})
+  test "changeset without family_name is invalid" do
+    changeset = User.changeset(%User{}, %{family_name: ""})
 
     refute changeset.valid?
-    assert changeset.errors[:last_name]
+    assert changeset.errors[:family_name]
   end
 
   test "changeset without duplicate email is invalid" do
@@ -48,7 +48,7 @@ defmodule RideShare.Identity.UserTest do
 
   defp insert_user(attributes) do
     %User{}
-    |> User.changeset(@valid_attrs)
+    |> User.changeset(attributes)
     |> Repo.insert()
   end
 end

@@ -6,8 +6,8 @@ defmodule RideShare.Identity.User do
 
   schema "users" do
     field(:email, :string)
-    field(:first_name, :string)
-    field(:last_name, :string)
+    field(:given_name, :string)
+    field(:family_name, :string)
     field(:avatar, :string)
 
     timestamps()
@@ -16,8 +16,8 @@ defmodule RideShare.Identity.User do
   @doc false
   def changeset(user, attrs) do
     user
-    |> cast(attrs, [:email, :first_name, :last_name, :avatar])
-    |> validate_required([:email, :first_name, :last_name])
+    |> cast(attrs, [:email, :given_name, :family_name, :avatar])
+    |> validate_required([:email, :given_name, :family_name])
     |> validate_format(:email, @email_regex)
     |> unique_constraint(:email)
   end
