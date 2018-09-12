@@ -24,5 +24,6 @@ defmodule RideShare.Identity.User do
     |> validate_required([:email, :given_name, :family_name])
     |> validate_format(:email, @email_regex)
     |> unique_constraint(:email)
+    |> cast_assoc(:credentials)
   end
 end

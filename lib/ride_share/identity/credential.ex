@@ -17,7 +17,7 @@ defmodule RideShare.Identity.Credential do
   def changeset(user, attrs) do
     user
     |> cast(attrs, [:user_id, :type, :token])
-    |> validate_required([:user_id, :type, :token])
+    |> validate_required([:type, :token])
     |> validate_inclusion(:type, ["google"])
   end
 end
