@@ -1,6 +1,6 @@
 # RideShare
 
-Application similar to Uver & Lyft built with Elixir.
+Application similar to Uber & Lyft, built with Elixir.
 
 To start your Phoenix app:
 
