@@ -1,0 +1,18 @@
+APP="ride_share"
+
+BUILD_HOST="localhost"
+BUILD_USER="$USER"
+BUILD_AT="$HOME/builds/$APP"
+
+PRODUCTION_HOSTS="138.197.229.186"
+PRODUCTION_USER="root"
+DELIVER_TO="/home/root/app_release"
+
+pre_erlang_get_and_update_deps() {
+  local _prod_secret_path="$PWD/config/prod.secret.exs"
+  if [ "$TARGET_MIX_ENV" = "prod" ]; then
+    __sync_remote "
+      ln -sfn '$_prod_secret_path' '$BUILD_AT/config/prod.secret.exs'
+    "
+  fi
+}
