@@ -4,33 +4,17 @@
 </div>
 
 <div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
 
   <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
+    <%= if @current_user do %>
+      <h2>Welcome <i><%= @current_user.given_name %></i>!</h2>
+      <%= img_tag @current_user.avatar %>
+      <%= link "Logout", to: auth_path(@conn, :delete), method: :delete, data: [confirm: "You sure?"] %>
+    <% else %>
+      <a class="btn btn-primary btn-lg" href="<%= auth_path @conn, :index %>">
+        <i class="fa fa-google"></i>
+        Sign in with Google
+      </a>
+    <% end %>
   </div>
 </div>

@@ -21,6 +21,15 @@ defmodule RideShare.Router do
     get("/", PageController, :index)
   end
 
+  scope "/auth", RideShare do
+    # Use the default browser stack
+    pipe_through(:browser)
+
+    get("/", AuthController, :index)
+    get("/callback", AuthController, :callback)
+    delete("/logout", AuthController, :delete)
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", RideShare do
   #   pipe_through :api

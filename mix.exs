@@ -20,7 +20,7 @@ defmodule RideShare.Mixfile do
   def application do
     [
       mod: {RideShare, []},
-      extra_applications: [:logger]
+      extra_applications: [:logger, :oauth2]
     ]
   end
 
@@ -43,6 +43,7 @@ defmodule RideShare.Mixfile do
       {:cowboy, "~> 1.0"},
       {:edeliver, ">= 1.6.0"},
       {:distillery, "~> 2.0", warn_missing: false},
+      {:oauth2, "~> 0.9"}
     ]
   end
 
