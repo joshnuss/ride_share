@@ -4,11 +4,12 @@ defmodule RideShare.AccountsTest do
   alias RideShare.Accounts
 
   test "register_user/1 creates a user" do
-    {:ok, user} = Accounts.register_user(%{
-      email: "user@example.com",
-      given_name: "John",
-      family_name: "Smith"
-    })
+    {:ok, user} =
+      Accounts.register_user(%{
+        email: "user@example.com",
+        given_name: "John",
+        family_name: "Smith"
+      })
 
     assert user == Accounts.get_user_by(email: "user@example.com")
   end

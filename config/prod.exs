@@ -18,7 +18,6 @@ config :ride_share, RideShare.Endpoint,
   server: true,
   code_reloader: false
 
-
 # Do not print debug messages in production
 config :logger, level: :info
 

@@ -8,7 +8,7 @@ defmodule RideShare.Accounts.User do
   @email_regex ~r/^(?<user>[^\s]+)@(?<domain>[^\s]+\.[^\s]+)$/
 
   schema "users" do
-    has_many :credentials, Credential
+    has_many(:credentials, Credential)
 
     field(:email, :string)
     field(:given_name, :string)

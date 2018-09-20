@@ -1,7 +1,7 @@
 defmodule RideShare.AuthenticationController do
   use RideShare.Web, :controller
 
-  defconstp :google, RideShare.GoogleAuth
+  defconstp(:google, RideShare.GoogleAuth)
 
   def index(conn, _params) do
     callback_url = authentication_url(conn, :callback)

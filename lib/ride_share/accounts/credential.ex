@@ -5,7 +5,7 @@ defmodule RideShare.Accounts.Credential do
   alias RideShare.Accounts.User
 
   schema "credentials" do
-    belongs_to :user, User
+    belongs_to(:user, User)
 
     field(:type, :string)
     field(:token, :string)

@@ -14,7 +14,7 @@ defmodule RideShare.AuthenticationControllerTest do
   end
 
   setup do
-    Dependency.register RideShare.GoogleAuth, FakeAuth
+    Dependency.register(RideShare.GoogleAuth, FakeAuth)
 
     :ok
   end
