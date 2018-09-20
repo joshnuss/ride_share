@@ -1,7 +1,7 @@
-defmodule RideShare.Identity.CredentialTest do
+defmodule RideShare.Accounts.CredentialTest do
   use RideShare.ModelCase
 
-  alias RideShare.Identity.Credential
+  alias RideShare.Accounts.Credential
 
   @valid_attrs %{user_id: 1, type: "google", token: "abcd123"}
 

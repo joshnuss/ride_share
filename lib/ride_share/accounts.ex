@@ -1,6 +1,6 @@
-defmodule RideShare.Identity do
+defmodule RideShare.Accounts do
   alias RideShare.Repo
-  alias RideShare.Identity.User
+  alias RideShare.Accounts.User
 
   def get_user_by(filters) do
     Repo.get_by(User, filters)

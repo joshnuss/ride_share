@@ -1,5 +1,5 @@
 defmodule RideShare.GoogleAuth do
-  alias RideShare.Identity
+  alias RideShare.Accounts
 
   def handle_callback(code) do
     {data, access_token} = extract_access_info(code)
@@ -17,7 +17,7 @@ defmodule RideShare.GoogleAuth do
   end
 
   defp verify(data = %{"email" => email}, access_token) do
-    case Identity.get_user_by(email: email) do
+    case Accounts.get_user_by(email: email) do
       nil ->
         register_user(data, access_token)
 
@@ -27,7 +27,7 @@ defmodule RideShare.GoogleAuth do
   end
 
   defp register_user(data, access_token) do
-    Identity.register_user(%{
+    Accounts.register_user(%{
       email: data["email"],
       given_name: data["given_name"],
       family_name: data["family_name"],

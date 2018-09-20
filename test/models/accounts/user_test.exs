@@ -1,7 +1,7 @@
-defmodule RideShare.Identity.UserTest do
+defmodule RideShare.Accounts.UserTest do
   use RideShare.ModelCase
 
-  alias RideShare.Identity.User
+  alias RideShare.Accounts.User
 
   @valid_attrs %{email: "user@example.com", given_name: "John", family_name: "Smith"}
 

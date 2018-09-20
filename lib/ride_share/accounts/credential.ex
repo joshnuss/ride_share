@@ -1,8 +1,8 @@
-defmodule RideShare.Identity.Credential do
+defmodule RideShare.Accounts.Credential do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias RideShare.Identity.User
+  alias RideShare.Accounts.User
 
   schema "credentials" do
     belongs_to :user, User

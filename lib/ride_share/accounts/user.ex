@@ -1,8 +1,8 @@
-defmodule RideShare.Identity.User do
+defmodule RideShare.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias RideShare.Identity.Credential
+  alias RideShare.Accounts.Credential
   alias __MODULE__, as: User
 
   @email_regex ~r/^(?<user>[^\s]+)@(?<domain>[^\s]+\.[^\s]+)$/
