@@ -37,6 +37,8 @@ defmodule RideShare.Web do
 
       import RideShare.Router.Helpers
       import RideShare.Gettext
+
+      import Dependency
     end
   end
 
