@@ -1,17 +1,17 @@
 defmodule RideShare.AuthenticationController do
   use RideShare.Web, :controller
 
-  alias RideShare.GoogleAuth
+  defconstp :google, RideShare.GoogleAuth
 
   def index(conn, _params) do
     callback_url = authentication_url(conn, :callback)
-    authorization_url = GoogleAuth.authorization_url(redirect_to: callback_url)
+    authorization_url = google.authorization_url(redirect_to: callback_url)
 
     redirect(conn, external: authorization_url)
   end
 
   def callback(conn, %{"code" => code}) do
-    {:ok, user} = GoogleAuth.handle_callback(code)
+    {:ok, user} = google.handle_callback(code)
 
     conn
     |> put_session(:current_user, user)
