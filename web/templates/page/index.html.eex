@@ -9,9 +9,9 @@
     <%= if @current_user do %>
       <h2>Welcome <i><%= @current_user.given_name %></i>!</h2>
       <%= img_tag @current_user.avatar %>
-      <%= link "Logout", to: auth_path(@conn, :delete), method: :delete, data: [confirm: "You sure?"] %>
+      <%= link "Logout", to: authentication_path(@conn, :delete), method: :delete, data: [confirm: "You sure?"] %>
     <% else %>
-      <a class="btn btn-primary btn-lg" href="<%= auth_path @conn, :index %>">
+      <a class="btn btn-primary btn-lg" href="<%= authentication_path @conn, :index %>">
         <i class="fa fa-google"></i>
         Sign in with Google
       </a>

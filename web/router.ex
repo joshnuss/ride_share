@@ -25,9 +25,9 @@ defmodule RideShare.Router do
     # Use the default browser stack
     pipe_through(:browser)
 
-    get("/", AuthController, :index)
-    get("/callback", AuthController, :callback)
-    delete("/logout", AuthController, :delete)
+    get("/", AuthenticationController, :index)
+    get("/callback", AuthenticationController, :callback)
+    delete("/logout", AuthenticationController, :delete)
   end
 
   # Other scopes may use custom stacks.

@@ -1,4 +1,4 @@
-defmodule RideShare.AuthController do
+defmodule RideShare.AuthenticationController do
   use RideShare.Web, :controller
 
   alias RideShare.GoogleAuth
@@ -8,7 +8,7 @@ defmodule RideShare.AuthController do
       external:
         Google.authorize_url!(
           scope: "https://www.googleapis.com/auth/userinfo.email",
-          redirect_uri: auth_url(conn, :callback)
+          redirect_uri: authentication_url(conn, :callback)
         )
     )
   end
