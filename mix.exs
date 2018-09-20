@@ -44,7 +44,8 @@ defmodule RideShare.Mixfile do
       {:edeliver, ">= 1.6.0"},
       {:distillery, "~> 2.0", warn_missing: false},
       {:oauth2, "~> 0.9"},
-      {:benchee, "~> 0.13", only: :dev}
+      {:benchee, "~> 0.13", only: :dev},
+      {:dependency, "~> 0.2"}
     ]
   end
 
