@@ -4,13 +4,10 @@ defmodule RideShare.AuthenticationController do
   alias RideShare.GoogleAuth
 
   def index(conn, _params) do
-    redirect(conn,
-      external:
-        Google.authorize_url!(
-          scope: "https://www.googleapis.com/auth/userinfo.email",
-          redirect_uri: authentication_url(conn, :callback)
-        )
-    )
+    callback_url = authentication_url(conn, :callback)
+    authorization_url = GoogleAuth.authorization_url(redirect_to: callback_url)
+
+    redirect(conn, external: authorization_url)
   end
 
   def callback(conn, %{"code" => code}) do

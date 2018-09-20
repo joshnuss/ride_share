@@ -1,6 +1,13 @@
 defmodule RideShare.GoogleAuth do
   alias RideShare.Accounts
 
+  def authorization_url(redirect_to: redirect_url) do
+    Google.authorize_url!(
+      scope: "https://www.googleapis.com/auth/userinfo.email",
+      redirect_uri: redirect_url
+    )
+  end
+
   def handle_callback(code) do
     {data, access_token} = extract_access_info(code)
 
