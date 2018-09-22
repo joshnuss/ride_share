@@ -1,8 +1,12 @@
 defmodule RideShare.GoogleAuth do
   alias RideShare.Accounts
 
+  import Dependency
+
+  defconstp :google, Google
+
   def authorization_url(redirect_to: redirect_url) do
-    Google.authorize_url!(
+    google.authorize_url!(
       scope: "https://www.googleapis.com/auth/userinfo.email",
       redirect_uri: redirect_url
     )
